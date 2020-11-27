@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 
 export class TodoItem extends Component {
-    static propTypes = {
-
-    }
 
     render() {
         return (
             <div>
-                
+                <p>{this.props.todo.title}</p>
             </div>
         )
     }
