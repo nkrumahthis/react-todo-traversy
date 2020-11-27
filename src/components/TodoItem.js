@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-export class TodoItem extends Component {
+export default class TodoItem extends Component {
+    static propTypes = {
+        prop: PropTypes.object.isRequired
+    }
 
     render() {
         return (
-            <div>
+            <div style={{backgroundColor: "#f4f4f4"}}>
                 <p>{this.props.todo.title}</p>
             </div>
         )
     }
 }
 
-export default TodoItem
