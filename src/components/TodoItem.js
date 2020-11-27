@@ -6,12 +6,32 @@ export default class TodoItem extends Component {
         prop: PropTypes.object.isRequired
     }
 
+    getStyle = () => {
+        if(this.props.todo.completed){
+            return{
+                textDecoration: 'line-through'
+            }
+        } else {
+            return {
+                textDecoration: 'none'
+            }
+        }
+    }
+
+    
+
     render() {
         return (
-            <div style={{backgroundColor: "#f4f4f4"}}>
+            <div style={this.getStyle()}>
                 <p>{this.props.todo.title}</p>
             </div>
         )
     }
 }
+
+const itemSTyle = {
+        backgroundColor: "#f4f4f4"
+    }
+
+
 
