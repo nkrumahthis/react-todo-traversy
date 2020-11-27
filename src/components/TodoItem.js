@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 
 export class TodoItem extends Component {
+    static propTypes = {
+
+    }
+
     render() {
         return (
             <div>
-                <h3>Hello</h3>
+                
             </div>
         )
     }
 }
 
 export default TodoItem
-
-
