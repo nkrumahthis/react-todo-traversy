@@ -6,7 +6,7 @@ export default class TodoItem extends Component {
         prop: PropTypes.object.isRequired
     }
 
-    getStyle = () => {
+    getStyle1 = () => {
         if(this.props.todo.completed){
             return{
                 textDecoration: 'line-through'
@@ -15,6 +15,16 @@ export default class TodoItem extends Component {
             return {
                 textDecoration: 'none'
             }
+        }
+
+    }
+
+    getStyle = () => {
+        return {
+            background: '#f4f4f4',
+            padding: '10px',
+            borderBottom: '1px #ccc dotted',
+            textdecoration: this.props.todo.completed? 'line-through' : 'none'
         }
     }
 
