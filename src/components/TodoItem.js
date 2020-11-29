@@ -22,7 +22,7 @@ class TodoItem extends Component {
             background: '#ff0000',
             color: '#fff',
             border: 'none',
-            padding: '5px 10px',
+            padding: '5px 8px',
             borderRadius: '50%',
             cursor: 'pointer',
             float: 'right'
@@ -31,10 +31,12 @@ class TodoItem extends Component {
         return (
             <div style={getStyle()}>
                 <p>
-                    <input type="checkbox" onChange={this.props.markComplete.bind(this, id)}/> 
-                    {' '}
-                    {title}
-                    <button style={btnStyle}>x</button>
+                    <input 
+                    type="checkbox" 
+                    onChange={this.props.markComplete.bind(this, id)}/> 
+                        {' '}
+                        {title}
+                    <button style={btnStyle} onClick={this.props.deleteTodo.bind(this, id)}>x</button>
                 </p>
             </div>
         )
