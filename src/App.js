@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './components/Todos';
+import Header from './components/Header';
 
 import './App.css';
 
@@ -42,7 +43,7 @@ render(){
   return ( 
     
     <div className="App">
-      <h1>Todo App</h1>
+      <Header/>
       <Todos todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
     </div>
   );
