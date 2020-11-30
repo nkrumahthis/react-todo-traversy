@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Todos from './components/Todos';
 import Header from './components/Header';
+import {v4 as uuid} from 'uuid';
 
 import './App.css';
 import AddTodo from './components/AddTodo';
@@ -25,33 +26,43 @@ class App extends Component {
             completed: false
         }
     ]
-}
+  }
 
-markComplete = (id) =>{
-  this.setState({todos: this.state.todos.map(todo=>{
-    if(todo.id === id){
-      todo.completed = !todo.completed
+  markComplete = (id) =>{
+    this.setState({todos: this.state.todos.map(todo=>{
+      if(todo.id === id){
+        todo.completed = !todo.completed
+      }
+      return todo;
+    })})
+  }
+
+  deleteTodo = (id) => {
+    this.setState({todos:[...this.state.todos.filter(todo=>todo.id !== id)]});
+  }
+
+  // add todo
+  addTodo = title => {
+    const newTodo = {
+      id: uuid(),
+      title,
+      completed: false
     }
-    return todo;
-  })})
-}
+    this.setState({todos:[...this.state.todos, newTodo]})
+  }
 
-deleteTodo = (id) => {
-  this.setState({todos:[...this.state.todos.filter(todo=>todo.id !== id)]});
-}
-
-render(){
-  return ( 
-    
-    <div className="App">
-      <div className="container">
-        <Header/>
-        <AddTodo/>
-        <Todos todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
-     </div>
-    </div>
-  );
-}
+  render(){
+    return ( 
+      
+      <div className="App">
+        <div className="container">
+          <Header/>
+          <AddTodo addTodo={this.addTodo}/>
+          <Todos todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
+      </div>
+      </div>
+    );
+  }
 }
 
 export default App;
